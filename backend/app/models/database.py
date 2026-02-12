@@ -10,7 +10,8 @@ SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL # This the database URL
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL,
     echo=True, # Will later be set to false for security
-    pool_pre_ping=True
+    pool_pre_ping=True,
+    connect_args={"sslmode": "require"}
 )
 
 # creating the session factory
